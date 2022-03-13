@@ -1,6 +1,8 @@
 <?php
 
+use App\Package;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class PackageSeeder extends Seeder
 {
@@ -15,10 +17,9 @@ class PackageSeeder extends Seeder
             $package=new Package();
             $package->name=$faker->text(20);
             $package->description=$faker->paragraph();
-            $package->location=$faker->text(20)->country();
-            $package->price=$faker->randomDecimal(2,1,2000);
+            $package->location=$faker->text(20);
+            $package->price=$faker->randomFloat(2,1,2000);
             $package->duration=$faker->randomDigit();
-            $package->colonna_aggiunta=$faker->boolean();
             $package->save();
         }
     }
